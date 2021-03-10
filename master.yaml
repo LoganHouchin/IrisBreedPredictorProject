@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Iris_Breed_Predictor
+  description: A application that predicts Iris Breed
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: Iris Breed REST
+  license:
+    name: Apache
+paths:
+  /Metrics:
+    post:
+      tags:
+        - Metrics
+      summary: Computes Accuracy, F1 score, etc. 
+      operationId: Iris_Breed_Predictor.Metrics
+      parameters:
+        - name: model 
+          in: query
+          description: name of the model to get metrics of 
+          required: true
+          schema:
+            type: string 
+        - name: features
+          in: query
+          description: The features of your testing data
+          required: true
+          schema:
+            type: string
+        - name: labels
+          in: query
+          description: The labels to your testing data
+          required: true
+          schema:
+            type: string
+        - name: test_index
+          in: query
+          description: Number to test as correct (Usually 0)
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Compute metrics
+        '405':
+          description: Invalid input
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
