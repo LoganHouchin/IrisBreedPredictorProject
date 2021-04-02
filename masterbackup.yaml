@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Iris_Breed_Predictor
+  description: A application that predicts Iris Breed
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: Iris Breed REST
+  license:
+    name: Apache
+paths:
+  /Metrics/{model,features,labels,testindex):
+    get:
+      tags:
+        - Metrics
+      summary: Computes Accuracy, F1 score, etc. 
+      operationId: Iris_Breed_Predictor.Metrics
+      parameters:
+        - name: model 
+          in: query
+          description: name of the model to get metrics of 
+          required: true
+          schema:
+            type: string
+        - name: features
+          in: query
+          description: The features of your testing data
+          required: true
+          schema:
+            type: string
+        - name: labels
+          in: query
+          description: The labels to your testing data
+          required: true
+          schema:
+            type: string
+        - name: test_index
+          in: query
+          description: Number to test as correct (Usually 0)
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Compute metrics
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+paths:
+  /Prediction/{feat_num}
+    get:
+      tags:
+        -Prediction
+      summary: Prints the prediction the features in row feat_num
+      operationId:Iris_Breed_Predictor.Prediction
+      parameters:
+        - name: feat_num
+          in: query
+          description: the number of the row of features to get pred. of
+          required: true
+          schema:
+            type: integer
+      responces:
+        'Setosa':
+          description: 'Breed'
+        'versicolor':
+          description: 'Breed'
+        'virginica':
+          description: 'Breed'
+
+paths:
+  /Actual/{feat_num}
+    get:
+      tags:
+        -Actual
+      summary: Prints the actual breed of the features in row feat_num
+      operationId:Iris_Breed_Predictor.Actual
+      parameters:
+        - name: feat_num
+          in: query
+          description: the number of the row of features to get actual breed of
+          required: true
+          schema:
+            type: integer
+      responces:
+        'Setosa':
+          description: 'Breed'
+        'versicolor':
+          description: 'Breed'
+        'virginica':
+          description: 'Breed'
+
+servers:
+  - url: 'http://localhost:8080'
