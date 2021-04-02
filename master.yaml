@@ -12,16 +12,20 @@ paths:
   /Prediction/{feat_num}
     get:
       tags:
-        -Prediction
-      summary: Prints the prediction the features in row feat_num
+        - Prediction
       operationId: Iris_Breed_Predictor.Prediction
+      description: Returns predicted breed of iris
       parameters:
-        - name: feat_num
-          in: query
-          description: the number of the row of features to get pred. of
+        - in: path
+          name: feat_num
           required: true
           schema:
             type: integer
+            items:
+              type: number
+            minItems: 1
+          style: simple
+          explode: true
       responses:
         '200':
           description: 'CPU info, or add more text'
@@ -29,19 +33,3 @@ paths:
 
 servers:
   - url: 'http://localhost:8080'
-components:
-  schemas:
-    CPU:
-      type: object
-      required:
-        - model
-      properties:
-        model:
-          type: string
-    OS:
-      type: object
-      required:
-        - model
-      properties:
-        model:
-          type: string
