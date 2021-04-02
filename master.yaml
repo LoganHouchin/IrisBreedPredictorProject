@@ -10,7 +10,7 @@ info:
     name: Apache
 paths:
   /Metrics/{model,features,labels,testindex):
-    post:
+    get:
       tags:
         - Metrics
       summary: Computes Accuracy, F1 score, etc. 
@@ -54,7 +54,7 @@ paths:
                   format: binary
 paths:
   /Prediction/{feat_num}
-    post:
+    get:
       tags:
         -Prediction
       summary: Prints the prediction the features in row feat_num
@@ -76,7 +76,7 @@ paths:
 
 paths:
   /Actual/{feat_num}
-    post:
+    get:
       tags:
         -Actual
       summary: Prints the actual breed of the features in row feat_num
