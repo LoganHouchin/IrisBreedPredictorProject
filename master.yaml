@@ -52,7 +52,7 @@ paths:
                 file:
                   type: string
                   format: binary
-
+paths:
   /Prediction/{feat_num}
     post:
       tags:
@@ -72,8 +72,9 @@ paths:
         'versicolor':
           description: 'Breed'
         'virginica':
-          description: "Breed'
+          description: 'Breed'
 
+paths:
   /Actual/{feat_num}
     post:
       tags:
@@ -93,4 +94,7 @@ paths:
         'versicolor':
           description: 'Breed'
         'virginica':
-          description: "Breed'
+          description: 'Breed'
+
+servers:
+  - url: 'http://localhost:8080'
