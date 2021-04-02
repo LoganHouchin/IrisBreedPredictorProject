@@ -9,7 +9,7 @@ info:
   license:
     name: Apache
 paths:
-  /Prediction/{feat_num}
+  /Prediction/{feat_num}:
     get:
       tags:
         - Prediction
