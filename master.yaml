@@ -29,3 +29,19 @@ paths:
 
 servers:
   - url: 'http://localhost:8080'
+components:
+  schemas:
+    CPU:
+      type: object
+      required:
+        - model
+      properties:
+        model:
+          type: string
+    OS:
+      type: object
+      required:
+        - model
+      properties:
+        model:
+          type: string
