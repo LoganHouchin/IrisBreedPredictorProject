@@ -9,11 +9,11 @@ info:
   license:
     name: Apache
 paths:
-  /Prediction/{feat_num}:
+  /Prediction/{id}:
     get:
       tags:
         - Prediction
-      operationId: Iris_Breed_Predictor.Prediction
+      operationId: prediction.predPrint
       description: Returns predicted breed of iris
       parameters:
         - in: path
