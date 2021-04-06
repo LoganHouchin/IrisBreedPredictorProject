@@ -17,7 +17,7 @@ paths:
       description: Returns predicted breed of iris
       parameters:
         - in: path
-          name: feat_num
+          name: id
           required: true
           schema:
             type: integer
