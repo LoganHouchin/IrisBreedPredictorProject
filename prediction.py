@@ -1,7 +1,8 @@
-from joblib import load
+import joblib as jblb
 import numpy as np
 
-model = load("Iris_model.pkl")
-
 def predPrint(id):
-   print("Prediction: " + model.prediction(id))
+   model = jblb.load('Iris_model.pkl')
+   pred = model.prediction(id)
+   str = ["Prediction: ", pred]
+   return str
