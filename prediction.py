@@ -6,7 +6,7 @@ import json
 iris_data = datasets.load_iris()
 class_names = iris_data.target_names
 
-def my_prediction(id):
+def predPrint(id):
     my_model = load('Iris_model.pkl')
     dummy = np.array(id)
     dummyT = dummy.reshape(1,-1)
