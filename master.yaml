@@ -20,7 +20,7 @@ paths:
           name: id
           required: true
           schema:
-            type: integer
+            type: array
             items:
               type: number
             minItems: 1
