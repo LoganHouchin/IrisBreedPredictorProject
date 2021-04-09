@@ -10,6 +10,6 @@ def predPrint(id):
    dummy = np.array(id)
    Dummy = dummy.reshape(1,-1)
    prediction = model.predict(Dummy)
-   Pred = class_names[prediction]
+   Pred = class_names[prediction[0]]
    str = ["Prediction: ",Pred]
    return str
