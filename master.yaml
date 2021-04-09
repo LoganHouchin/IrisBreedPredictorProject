@@ -9,10 +9,10 @@ info:
   license:
     name: Apache
 paths:
-  /Prediction/{id}:
+  /Predict/{id}:
     get:
       tags:
-        - Prediction
+        - Pred
       operationId: prediction.predPrint
       description: Returns predicted breed of iris
       parameters:
