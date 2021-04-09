@@ -1,3 +1,4 @@
+from sklearn import datasets
 from joblib import load
 import numpy as np
 
